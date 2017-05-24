@@ -181,7 +181,7 @@ class CompareFunctionsProcessor extends AbstractExprVisitor<Boolean, LogicalExpr
           return false;
         }
 
-        boolean isRowKey = ((SchemaPath)nameArg).getAsUnescapedPath().equals(DrillHBaseConstants.ROW_KEY);
+        boolean isRowKey = ((SchemaPath)nameArg).getAsUnescapedPath().equalsIgnoreCase(DrillHBaseConstants.ROW_KEY);
         int offset = ((IntExpression)valueArg1).getInt();
 
         if (!isRowKey || (offset != 1)) {

@@ -161,7 +161,7 @@ public class MapRDBFilterBuilder extends AbstractExprVisitor<HBaseScanSpec, Void
     SchemaPath field = processor.getPath();
     byte[] fieldValue = processor.getValue();
     boolean sortOrderAscending = processor.isSortOrderAscending();
-    boolean isRowKey = field.getAsUnescapedPath().equals(ROW_KEY);
+    boolean isRowKey = field.getAsUnescapedPath().equalsIgnoreCase(ROW_KEY);
     if (!(isRowKey
         || (!field.getRootSegment().isLastPath()
             && field.getRootSegment().getChild().isLastPath()
